@@ -33,7 +33,7 @@
                 <div class="col-blog-content blog-main">
 
                     <h1 class="blog-post-title">{{ page.title }}</h1>
-                    <p class="text-muted">
+                    <p class="text-muted mb-1">
                         <a href="/blog/archive/#{{ page.date.year }}" class="text-muted">{{ ymd_format(page.date) }}</a>
                         <a href="/blog/categories/#{{ page.category }}" class="badge badge-primary ml-2">{{ page.category }}</a>
                         {% for tag in page.tags %}
@@ -43,6 +43,20 @@
                         <span class="badge badge-danger">Hidden</span>
                         {% endif %}
                         <img src="https://hitcounter.pythonanywhere.com/count/tag.svg" alt="Hits" class="post-hits">
+                    </p>
+                    <p class="text-muted mb-2">
+                        Written by&nbsp;{%- if page.author -%}<a href={{ people[page.author] }}>{{ page.author }}</a>{%- else -%}<a href={{ people[site.default_author] }}>{{ site.default_author }}</a>{%- endif -%}
+                        {%- if page.editors -%}
+                            &nbsp;and modified by
+                            {% for editor in page.editors[:-2] %}
+                                <a href="{{ people[editor] }}">{{ editor }}</a>,
+                            {% endfor %}
+                            {%- if page.editors|length > 1 -%}
+                                <a href="{{ people[page.editors[-2]] }}">{{ page.editors[-2] }}</a> and&nbsp;
+                            {%- endif -%}
+                            <a href="{{ people[page.editors[-1]] }}">{{ page.editors[-1] }}</a>
+                        {%- endif -%}
+                        <a href="#" class="float-right"><small>Suggest Edits</small></a>
                     </p>
                     <p class="lead">{{ page.description }}</p>
                     <hr>

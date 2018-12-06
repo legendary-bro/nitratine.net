@@ -309,6 +309,7 @@ def blog_post(path):
         'blog-post.html',
         category_numbers=post_numbers_by_category(),
         prev_and_next=get_previous_and_next_posts(page),
+        people=PEOPLE,
         page=page
     )
 
