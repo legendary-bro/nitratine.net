@@ -117,6 +117,9 @@
 <p>Before you start this, make sure you have your gmail username and password ready. The account you are going to use must not have 2-Step Verification enabled as we will no longer be able to log in.</p>
 <p>Next go to <a href="https://myaccount.google.com/lesssecureapps">https://myaccount.google.com/lesssecureapps</a> and login if you need to. In this page you will want to flick the Allow less secure apps switch to on. This allows us to use less secure sign-in technology to login to the email server; note that this will make you account more vulnerable.</p>
 <p><img alt="Allow less secure apps switch" src="/post-assets/how-to-send-an-email-with-python/alsa1.png" /></p>
+<blockquote>
+<p>If you want/do have 2-Step Verification enabled, read up on how to <a href="https://support.google.com/accounts/answer/185833">sign in using an app password</a>. This allows you to generate a password specifically for this 'application' which allows this script to be compatible with a Google account using 2-Step Verification.</p>
+</blockquote>
 <h2 id="simple-email">Simple Email</h2>
 <p>To start off, we will use the <a href="https://docs.python.org/3/library/smtplib.html">smtplib module</a> which comes with python, so no need to install it using <a href="/blog/post/how-to-setup-pythons-pip/">pip</a>.</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
