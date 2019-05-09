@@ -125,22 +125,8 @@
 <p><a class="btn btn-primary" href="javascript:copyCode()" role="button">Copy the Unblock Code</a>
 <div class="alert alert-success" role="alert" id="copyCodeSuccess" style="display: none">
   JavaSript code has been copied!
-</div></p>
-<script>
-    function copyCode() {
-        let content = "javascript:javascript:$('head').append( '<style>' + '#main { height: auto !important; }' + '#article-content > * { display: block !important; color: #000 !important; opacity: 1 !important; }' + '.article-offer { display: none !important; }' + '.ad-container, .pb-f-article-related-articles { display: none !important; }' + '</style>' ); function mode(arr) { return arr.sort((a,b) => arr.filter(v => v===a).length - arr.filter(v => v===b).length ).pop(); }; let classes = []; $('#article-content').children().each((index, e) => { e.classList.forEach(i => classes.push(i)); }); let possible_premium_class = mode(classes); $('.' + possible_premium_class).removeClass(possible_premium_class); $('#article-content') .removeClass('premium-content') .addClass('full-content');";
-        let textarea = document.createElement("textarea");
-        textarea.textContent = content;
-        document.body.appendChild(textarea);
-        textarea.select();
-        if (!document.execCommand("copy")) {
-            window.prompt("Copy this then click OK",content);
-        }
-        document.getElementById('copyCodeSuccess').style.display = 'block';
-        setTimeout(function(){ document.getElementById('copyCodeSuccess').style.display = 'none'; }, 2000);
-    }
-</script>
-
+</div>
+<script type="text/javascript" src="/post-assets/unblock-new-zealand-herald-premium-articles/copy-to-clipboard.js"></script></p>
 <p>The button above copies the bookmarklet to your clipboard. Click this and then create a new bookmark (name it what you want) and paste the code copied into the bookmark address.</p>
 <blockquote>
 <p>On some devices you may find it easier to create a bookmark first with anything and then edit it to insert the code. Make sure the code copied starts with <code>javascript:</code> (it will if you copied it using the button).</p>
@@ -199,11 +185,13 @@
           <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">v</span><span class="o">===</span><span class="nx">a</span><span class="p">).</span><span class="nx">length</span>
         <span class="o">-</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">v</span> <span class="p">=&gt;</span> <span class="nx">v</span><span class="o">===</span><span class="nx">b</span><span class="p">).</span><span class="nx">length</span>
     <span class="p">).</span><span class="nx">pop</span><span class="p">();</span>
-<span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">article_content</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#article-content&#39;</span><span class="p">);</span>
 
 <span class="cm">/* Get all the classes */</span>
 <span class="kd">let</span> <span class="nx">classes</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#article-content&#39;</span><span class="p">).</span><span class="nx">children</span><span class="p">().</span><span class="nx">each</span><span class="p">((</span><span class="nx">index</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="nx">article_content</span><span class="p">.</span><span class="nx">children</span><span class="p">().</span><span class="nx">each</span><span class="p">((</span><span class="nx">index</span><span class="p">,</span> <span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="nx">e</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">i</span> <span class="p">=&gt;</span> <span class="nx">classes</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
 <span class="p">});</span>
 
@@ -212,7 +200,7 @@
 <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">possible_premium_class</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="nx">possible_premium_class</span><span class="p">);</span>
 
 <span class="cm">/* Remove the premium-content class. Removes fade out, ellipsis&#39; */</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#article-content&#39;</span><span class="p">)</span>
+<span class="nx">article_content</span>
     <span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;premium-content&#39;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;full-content&#39;</span><span class="p">);</span>
 </pre></div>
